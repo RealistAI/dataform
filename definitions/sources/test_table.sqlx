@@ -1,0 +1,5 @@
+config {
+	type: "declaration",
+	schema: "mikes_tst_dataset",
+	name: "test_table",
+}
