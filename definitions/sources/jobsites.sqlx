@@ -1,14 +1,15 @@
 config { 
-  type: "view"
+  type: "view",
+
 }
 
 SELECT 
     t.*
-  FROM 
-    `michael-gilbert-dev.mikes_tst_dataset.jobsites_csv_*` t
+FROM
+  ${constants.database}.mikes_tst_dataset.jobsites_csv_*` t
   WHERE
     _TABLE_SUFFIX = (
       SELECT
         MAX(_TABLE_SUFFIX)
       FROM
-        `michael-gilbert-dev.mikes_tst_dataset.jobsites_csv_*`)
+        ${constants.database}.mikes_tst_dataset.jobsites_csv_*`)

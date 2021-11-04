@@ -1,7 +1,0 @@
-config { type: "table" }
-
-SELECT
-  *
-FROM
-  ${ref("jobsites")}
-
