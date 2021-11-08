@@ -6,10 +6,10 @@ config {
 SELECT
     t.*
 FROM
-  ${constants.database}.mikes_tst_dataset.to-dos_csv_*` t
+  ${constants.project}.${constants.dataset}.${constants.todotable} t
   WHERE
     _TABLE_SUFFIX = (
       SELECT
         MAX(_TABLE_SUFFIX)
       FROM
-       ${constants.database}.mikes_tst_dataset.to-dos_csv_*`)
+       ${constants.project}.${constants.dataset}.${constants.todotable})

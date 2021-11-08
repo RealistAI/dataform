@@ -1,15 +1,16 @@
 config { 
   type: "view",
-
+  assertions: {
+    nonNull: ["job_name"]
+  }
 }
-
 SELECT 
     t.*
 FROM
-  ${constants.database}.mikes_tst_dataset.jobsites_csv_*` t
+  ${constants.project}.${constants.dataset}.${constants.jobtable} t
   WHERE
     _TABLE_SUFFIX = (
       SELECT
         MAX(_TABLE_SUFFIX)
       FROM
-        ${constants.database}.mikes_tst_dataset.jobsites_csv_*`)
+        ${constants.project}.${constants.dataset}.${constants.jobtable})

@@ -1,4 +1,12 @@
-const database = "`michael-gilbert-dev";
+const project = "`michael-gilbert-dev";
+const dataset = "mikes_tst_dataset";
+const jobtable = "jobsites_csv_*`";
+const scheduletable = "schedule_list_all*`";
+const todotable = "to-dos_csv_*`";
 module.exports = {
-	database
+	project,
+	dataset,
+	jobtable,
+	scheduletable,
+	todotable
 };
