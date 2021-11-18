@@ -1,0 +1,15 @@
+config { type: "view", 
+	 assertions: {
+	 	nonNull: ["Job", "Job_Color",]
+                     }
+       }
+
+SELECT
+	Job,
+	Title,
+	Start,
+	Finish,
+	Permit,
+	Job_Color	
+FROM
+	${ref("shell_staging")}

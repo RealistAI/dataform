@@ -1,0 +1,34 @@
+config { type: "table" }
+
+SELECT
+	c.job AS Job,
+	c.title AS Title,
+	DATE(c.start) AS Start,
+	DATE(c.finish) AS Finish,
+	c.permit AS Permit,
+	c.job_color AS Job_color,
+FROM
+(
+	SELECT
+  		s.job,
+  		s.title,
+  		DATE(s.start) AS start,
+  		DATE(s.finish) AS finish,
+  		j.permit,
+  		${color_codes.color_mapping("j.job_color")} AS job_color,
+ 	 	s.marked_complete
+	FROM
+		${ref("schedule")} s
+	LEFT JOIN
+		${ref("jobsites")} j
+	ON
+		s.job = j.job_name
+	WHERE
+		marked_complete = "False" 
+	AND
+		s.title IN ('Hub & Tac', 'Scrape Fill land Build pad and compact', 'Plumbing Rough-In 1', 'Truss package delivery', 'Slab Block and Beam', 'Block and Beam')
+) AS c
+WHERE
+	c.job_color = "Under Construction"
+ORDER BY
+	DATE(c.finish)
