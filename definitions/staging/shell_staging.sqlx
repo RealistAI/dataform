@@ -30,5 +30,3 @@ FROM
 ) AS c
 WHERE
 	c.job_color = "Under Construction"
-ORDER BY
-	DATE(c.finish)
