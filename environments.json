@@ -1,0 +1,17 @@
+{
+  "environments": [
+    {
+      "name": "production",
+      "gitRef": "SHA256:2FnDt5Ve2VROpe0iUr4Bn3HGZ/RTpmMHvDeLbLqYNIo",
+      "configOverride": {
+        "defaultDatabase": "michael-gilbert-dev"
+      },
+      "schedules": [
+        {
+          "name": "run_everything_once_per_day",
+          "cron": "0 10 * * *"
+        }
+      ]
+    }
+  ]
+}

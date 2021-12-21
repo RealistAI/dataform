@@ -15,3 +15,6 @@ FROM
 	${ref("shell_staging")}
 ORDER BY
 	Finish ASC
+${when(
+	dataform.projectConfig.vars.environmentName === "production"
+)}
