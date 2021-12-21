@@ -8,8 +8,10 @@ SELECT
 	Job,
 	Title,
 	Start,
-	Finish,
+	DATE(Finish) AS Finish,
 	Permit,
 	Job_Color	
 FROM
 	${ref("shell_staging")}
+ORDER BY
+	Finish ASC
