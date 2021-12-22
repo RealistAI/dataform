@@ -1,6 +1,6 @@
 const { exec } = require("child_process");
 
-function exec("dataform run", (error, stdout, stderr) => {
+function exec("sh run.sh", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
