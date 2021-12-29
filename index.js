@@ -11,7 +11,7 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  exec("npm install @dataform/cli", (error, stdout, stderr) => {
+  exec("npm install -g @dataform/cli", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
