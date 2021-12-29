@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "@google-cloud/pubsub": "^0.18.0",
-    "@dataform/core": "1.20.0"
+    "@dataform/core": "1.20.2",
+    "@dataform/api" : "1.6.4"
   }
 }
