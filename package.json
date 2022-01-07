@@ -5,7 +5,8 @@
     "@google-cloud/pubsub": "^0.18.0",
     "@dataform/cli" : "1.20.2",
     "@google-cloud/bigquery" : "5.9.3",
-    "@dataform/core" : "1.20.2"
+    "@dataform/core" : "1.20.2",
+    "@dataform/api" : "1.6.4"
   }
 }
 
