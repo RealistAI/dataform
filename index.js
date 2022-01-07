@@ -11,7 +11,7 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  exec("dataform run", (error, stdout, stderr) => {
+exports.exec("dataform run", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
