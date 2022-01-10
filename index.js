@@ -1,5 +1,5 @@
 const { exec } = require("child_process");
-const helloPubSub = require('@dataform/cli');
+const dataform = require('@dataform/cli');
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
@@ -11,7 +11,7 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  exec("dataform run", (error, stdout, stderr) => {
+  exec(`${dataform("dataform run")}`, (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
