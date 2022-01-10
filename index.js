@@ -1,5 +1,5 @@
 const { exec } = require("child_process");
-const dataformRun = require('@dataform/core');
+const helloPubSub = require('@dataform/cli');
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
