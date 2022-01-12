@@ -12,6 +12,7 @@
     "@dataform/sql": "0.4.0",
     "@dataform/grpc-web-proxy": "0.2.0",
     "@dataform/tests": "0.0.2-beta.6",
-    "@google-cloud/pubsub": "^0.18.0"
+    "@google-cloud/pubsub": "^0.18.0",
+    "execSync": "1.0.2"
   }
 }
