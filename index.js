@@ -10,6 +10,5 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  var code = sh.run("dataform run");
-  console.log('return code ' + code);
+  sh.run("dataform run");
 };
