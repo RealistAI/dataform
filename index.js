@@ -1,4 +1,4 @@
-var sh = require("execSync");
+const { execSync } = require("child_process");
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
@@ -10,5 +10,5 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  sh.run("dataform run");
+  execSync("dataform run");
 };
