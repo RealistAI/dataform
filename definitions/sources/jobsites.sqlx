@@ -1,7 +1,7 @@
 config { 
   type: "view",
   assertions: {
-    nonNull: ["job_name"]
+    nonNull: ["job_name", "job_color"]
   }
 }
 SELECT 
