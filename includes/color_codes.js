@@ -18,6 +18,8 @@ function color_mapping(color_code) {
 			THEN "On Hold"
 		WHEN ${color_code} = "72609F" --Purple
 			THEN "On Hold"
+		WHEN ${color_code} = "FF9600" --Orange
+			THEN "ORANGE"
 		ELSE "UNKNOWN COLOR"
 		END`;
 }

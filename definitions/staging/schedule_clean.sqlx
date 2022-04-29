@@ -1,0 +1,12 @@
+config { type: "table" }
+
+SELECT
+	job AS job_name,
+	title,
+	${phase_count.phase_count("title")} AS phase,
+	completed,
+	assigned_to
+FROM
+	${ref("schedule")}	
+		
+

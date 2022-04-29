@@ -1,0 +1,21 @@
+config { type: "table" }
+
+SELECT
+	job_name,
+	title,
+	phase,
+	CASE
+	WHEN
+		completed = True
+	THEN
+		1
+	WHEN
+		completed = False
+	THEN
+		0
+	ELSE
+		NULL
+	END AS completed,
+	assigned_to
+FROM
+	${ref("schedule_clean")}

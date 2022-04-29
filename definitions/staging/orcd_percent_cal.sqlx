@@ -1,0 +1,15 @@
+config { type: "view" }
+
+SELECT
+	Job,
+	Title,
+	Completed,
+	${phase_count.phase_count("Title")} AS Phase
+FROM (
+	SELECT
+		Job,
+		REPLACE(Title, ' ', '') AS Title,
+		Completed,
+	FROM
+		${ref("schedule")}
+)

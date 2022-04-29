@@ -1,0 +1,126 @@
+config { type: "table" }
+SELECT
+	*,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 0' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 0' = a.phase)), 0) AS Phase_0,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 1' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 1' = a.phase)), 0) AS Phase_1,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 2' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 2' = a.phase)), 0) AS Phase_2,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 3' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 3' = a.phase)), 0) AS Phase_3,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 4' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 4' = a.phase)), 0) AS Phase_4,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 5' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 5' = a.phase)), 0) AS Phase_5,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 6' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Phase 6' = a.phase)), 0) AS Phase_6
+FROM
+	${ref("jobsites_clean")} b
+WHERE
+	job_color = "Under Construction"

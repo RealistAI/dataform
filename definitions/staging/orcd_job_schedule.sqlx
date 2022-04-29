@@ -1,0 +1,33 @@
+config { type: "view" }
+SELECT
+	c.job_name,
+	c.phase,
+	c.title,
+	c.completion
+FROM (
+	SELECT
+		j.Name AS job_name,
+		${phase_count.phase_count("s.Title")} AS phase,
+		s.Title AS title,
+		CASE 
+			WHEN
+				s.Completed = True
+			THEN
+				1
+			WHEN
+				s.Completed = False
+			THEN
+				0
+			ELSE
+				NULL
+		END AS completion,
+	FROM
+		${ref("schedule")} s
+	LEFT JOIN
+		${ref("jobsites")} j
+	ON
+		s.Job = j.Name
+	) c
+ORDER BY 
+	c.job_name
+

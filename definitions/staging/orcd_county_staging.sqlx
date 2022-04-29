@@ -1,0 +1,17 @@
+config {type: "view" }
+
+SELECT
+	County,
+	Zip,
+	Name,
+	JobId
+FROM
+	(
+		SELECT
+			${zipcode_map.county_map("Zip")} as County,
+			Zip,
+			Name,
+			JobId
+		FROM
+			${ref("jobsites")}
+)

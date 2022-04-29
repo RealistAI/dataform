@@ -1,0 +1,24 @@
+config { type: "table" }
+
+SELECT
+	dj.Job,
+	f.Model,
+	f.County
+FROM
+	(
+	SELECT	
+		DISTINCT
+		Name AS Job,
+	FROM
+		${ref("jobsites")}
+	WHERE
+		(${color_codes.color_mapping("Job_Color")}) = "Under Construction"
+	) AS dj
+INNER JOIN
+	${ref("orcd_final_prep")} f
+ON
+	dj.Job = f.job_name
+GROUP BY 
+	dj.Job,
+	f.Model,
+	f.County

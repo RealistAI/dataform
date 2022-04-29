@@ -1,0 +1,19 @@
+config { type: "view" }
+
+SELECT
+	Model,
+	COUNT(Model) AS Count,
+	Name
+FROM
+	(
+	SELECT
+		DISTINCT(Name) AS Name,
+		REGEXP_EXTRACT(Job_Groups, r'^(.+?),') AS Model
+	FROM 
+		${ref("jobsites")}
+	)
+GROUP BY
+	Model,
+	Name
+ORDER BY
+	Model

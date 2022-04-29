@@ -1,0 +1,16 @@
+config { type: "table" }
+
+SELECT
+	${color_codes.color_mapping("job_color")} AS job_color,
+	name AS job_name,
+	${zipcode_map.county_map("zip")} AS county,
+	project_manager,
+	job_groups,
+	REGEXP_EXTRACT(job_groups, r'^(.+?),') AS model,
+	lender_ AS lender,
+	loan_type_ AS loan_type,
+	owner
+FROM
+	${ref("jobsites")}
+	
+

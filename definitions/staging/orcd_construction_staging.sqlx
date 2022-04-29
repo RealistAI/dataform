@@ -1,0 +1,29 @@
+config { type: "view" }
+
+SELECT
+	j.JobId AS JobId,
+	${color_codes.color_mapping("j.Job_Color")} AS Job_Color,
+	j.Name AS Job,
+	j.Job_Groups AS Job_Groups,
+	s.Phase AS Phase,
+	j.Project_Manager AS Superintendent,
+	m.Model AS Model,
+	j.Lender_ AS Investor,
+	j.Loan_Type_ AS Finance_Type,
+	c.County
+FROM
+	${ref("jobsites")} j
+LEFT JOIN
+	${ref("schedule")} s
+ON
+	j.Name = s.Job
+LEFT JOIN
+	${ref("orcd_model_staging_1")} m
+ON	
+	j.Name = m.Name
+LEFT JOIN
+	${ref("orcd_county_staging")} c
+ON
+	j.Name = c.Name
+ORDER BY 
+	j.Name

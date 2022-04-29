@@ -1,0 +1,28 @@
+config { type: "view" }
+
+SELECT
+	j.Name AS job_name,
+	${color_codes.color_mapping("j.Job_Color")} AS Job_Color,
+	REPLACE(s.Title, ' ', '') AS title,
+	CASE
+		WHEN
+			s.Completed = True
+		THEN
+			1
+		WHEN
+			s.Completed = False
+		THEN
+			0
+		ELSE
+			NULL
+		END AS completion,
+	REGEXP_EXTRACT(j.Job_Groups, r'^(.+?),') AS Model,
+	CAST(j.Zip AS INT64) AS Zip
+FROM
+	${ref("schedule")} s
+LEFT JOIN
+	${ref("jobsites")} j
+ON
+	s.Job = j.Name
+WHERE
+	(${color_codes.color_mapping("j.Job_Color")}) = "Under Construction"

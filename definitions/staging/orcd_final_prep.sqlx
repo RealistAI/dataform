@@ -1,0 +1,28 @@
+config { type: "view" } 
+
+SELECT
+	f.job_name,
+	${phase_count.phase_count("f.title")} AS phase,
+	f.completion,	
+	f.title,
+	s.Completed,
+	f.Job_Color,
+	f.Model,
+	${zipcode_map.county_map("f.Zip")} AS County,
+	j.Job_Groups,
+	j.Project_Manager AS Superintendent,
+	j.Lender_ AS Investor,
+	j.Loan_Type_ AS Finance_Type,
+	s.Phase AS Sub_Phase
+FROM
+	${ref("orcd_filters")} f
+LEFT JOIN
+	${ref("jobsites")} j
+ON
+	f.job_name = j.Name
+LEFT JOIN
+	${ref("schedule")} s
+ON
+	f.job_name = s.Job	
+WHERE
+	f.Job_Color = "Under Construction"
