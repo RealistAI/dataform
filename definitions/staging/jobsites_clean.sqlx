@@ -9,7 +9,8 @@ SELECT
 	REGEXP_EXTRACT(job_groups, r'^(.+?),') AS model,
 	lender_ AS lender,
 	loan_type_ AS loan_type,
-	owner
+	owner,
+	referral_source_ AS referral_source
 FROM
 	${ref("jobsites")}
 	
