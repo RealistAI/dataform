@@ -5,8 +5,10 @@ SELECT
 	title,
 	${phase_count.phase_count("title")} AS phase,
 	completed,
-	assigned_to
+	assigned_to,
+	s.start as scheduled_start,
+	s.end as scheduled_end
 FROM
-	${ref("schedule")}	
+	${ref("schedule")} as s	
 		
 
