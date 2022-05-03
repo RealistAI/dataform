@@ -1,6 +1,7 @@
 config { type: "table" }
 
 SELECT
+	job_name,
 	title,
 	scheduled_start,
 	scheduled_end,

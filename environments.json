@@ -1,0 +1,12 @@
+{
+  "environments": [
+    {
+      "name": "production",
+      "gitRef": "master",
+      "configOverride": { "defaultDatabase": "dataform_test" },
+      "schedules": [ ... ]
+    }
+  ]
+}
+
+
