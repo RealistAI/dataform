@@ -1,11 +1,13 @@
 config { type: "table" }
 
 SELECT
+	JobId AS job_id,
 	job AS job_name,
 	title,
 	${phase_count.phase_count("title")} AS phase,
 	completed,
 	assigned_to,
+	Duration__Days_ AS duration_days,
 	s.start as scheduled_start,
 	s.end as scheduled_end
 FROM

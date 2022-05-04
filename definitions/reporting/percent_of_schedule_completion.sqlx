@@ -1,0 +1,17 @@
+config { type: "table" }
+
+SELECT
+	a.job_id,
+	a.job_name,
+	((SELECT SUM(duration_days) FROM dataform.schedule_clean WHERE completed = TRUE) / SUM(a.duration_days)) / 100 AS percent_completed
+FROM
+	${ref("schedule_clean")} a
+JOIN 
+  ${ref("jobsites_clean")} b
+ON
+  a.job_id = b.job_id
+WHERE
+	b.status = "OPEN"
+AND
+	a.job_name != "000 - Closed Jobs"
+GROUP BY a.job_id, a.job_name

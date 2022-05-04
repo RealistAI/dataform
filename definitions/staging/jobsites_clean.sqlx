@@ -3,6 +3,7 @@ config { type: "table" }
 SELECT
 	${color_codes.color_mapping("job_color")} AS job_color,
 	name AS job_name,
+	JobId AS job_id,
 	${zipcode_map.county_map("zip")} AS county,
 	project_manager,
 	job_groups,
@@ -10,7 +11,8 @@ SELECT
 	lender_ AS lender,
 	loan_type_ AS loan_type,
 	owner,
-	referral_source_ AS referral_source
+	referral_source_ AS referral_source,
+	Status AS status
 FROM
 	${ref("jobsites")}
 	
