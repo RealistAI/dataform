@@ -4,7 +4,7 @@
       "name": "production",
       "gitRef": "test_environment",
       "configOverride": {
-	"defaultDatabase": "dataform_test"
+	"schemaSuffix": "_production"
       }
     }
   ]
