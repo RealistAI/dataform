@@ -3,7 +3,8 @@ config { type: "table" }
 SELECT
 	a.job_id,
 	a.job_name,
-	((SELECT SUM(duration_days) FROM dataform.schedule_clean WHERE completed = TRUE) / SUM(a.duration_days)) / 100 AS percent_completed
+	COALESCE(
+	((SELECT SUM(duration_days) FROM dataform.schedule_clean WHERE completed = TRUE AND job_id = a.job_id) / SUM(a.duration_days)), 0) AS percent_completed
 FROM
 	${ref("schedule_clean")} a
 JOIN 
