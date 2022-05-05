@@ -3,8 +3,7 @@
     {
       "name": "production",
       "gitRef": "test_environment",
-      "configOverride": { "schemaSuffix": "_production" },
-      "schedules": [ ... ]
+      "configOverride": { "defaultSchema": "dataform_production" }
     }
   ]
 }
