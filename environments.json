@@ -3,9 +3,7 @@
     {
       "name": "production",
       "gitRef": "test_environment",
-      "configOverride": {
-	"defaultSchema": "dataform_production"
-      }
+      "configOverride": { "defaultSchema": "dataform_production" }
     }
   ]
 }
