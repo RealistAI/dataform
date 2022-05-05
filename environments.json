@@ -1,0 +1,9 @@
+{
+  "environments": [
+    {
+      "name": "production",
+      "gitRef": "test_environment",
+      "configOverride": { "defaultDatabase": "dataform_test" }
+    }
+  ]
+}
