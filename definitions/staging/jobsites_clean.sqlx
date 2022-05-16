@@ -7,7 +7,7 @@ SELECT
 	${zipcode_map.county_map("zip")} AS county,
 	project_manager,
 	job_groups,
-	REGEXP_EXTRACT(job_groups, r'^(.+?),') AS model,
+	${model_map.model_mapping("name")} AS model,
 	lender_ AS lender,
 	loan_type_ AS loan_type,
 	owner,
