@@ -10,5 +10,5 @@ exports.helloPubSub = (event, context) => {
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
   console.log(message);
-  execSync("dataform run");
+  execSync("./deploy_prod.sh");
 };
