@@ -6,7 +6,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Permitting' = a.phase
@@ -14,7 +14,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Permitting' = a.phase)), 0) AS Permitting,
@@ -23,7 +23,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Site/Pad' = a.phase
@@ -31,7 +31,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Site/Pad' = a.phase)), 0) AS Site_Pad,
@@ -40,7 +40,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Slab/Block/Beam' = a.phase
@@ -48,7 +48,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Slab/Block/Beam' = a.phase)), 0) AS Slab_Block_Beam,
@@ -57,7 +57,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Framing' = a.phase
@@ -65,7 +65,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Framing' = a.phase)), 0) AS Framing,
@@ -74,7 +74,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Rough' = a.phase
@@ -82,7 +82,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Rough' = a.phase)), 0) AS Internal_Rough,
@@ -91,7 +91,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Trim' = a.phase
@@ -99,7 +99,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Trim' = a.phase)), 0) AS Internal_Trim,
@@ -108,7 +108,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Finish' = a.phase
@@ -116,7 +116,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Internal Finish' = a.phase)), 0) AS Internal_Finish,
@@ -125,7 +125,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Final Inspections' = a.phase
@@ -133,7 +133,7 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
                    AND 'Final Inspections' = a.phase)), 0) AS Final_Inspections	
