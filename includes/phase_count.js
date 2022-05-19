@@ -1,33 +1,33 @@
 function phase_count(title) {
 	return `CASE 
 		WHEN 
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw6", "painttouchup&punchlist", "requestfinalsurvey", "schedulecityinspection", "schedulecityinspections", "termitecontrol", "canceltheporta-johns", "coinspection", "finalclean", "handkeystothehomeowner-percontract!", "register&payforhomewarranty", "finaldraw", "finalclean")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw6", "painttouchup&punchlist", "requestfinalsurvey", "schedulecityinspection", "schedulecityinspections", "termitecontrol", "canceltheporta-johns", "coinspection", "finalclean", "handkeystothehomeowner-percontract!", "register&payforhomewarranty", "finaldraw", "finalclean", "coapproved", "cancelporta-johns", "requestfoundationsurvey", "handkeystohomeowner-percontract!", "requestedsepticfinal", "schedulesepticfinal", "cityofcapecoralinspections", "cityofcapecoralexteriorinspections")
 			THEN "Final Inspections"
 		WHEN
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw5", "back-splashinstall", "deliverappliances", "plumbingtrimout", "electricaltrimout", "blowerdoortest", "drywalltouchup", "wellequipmentinstall", "doorandtrimhardwareinstallation", "door&trimhardwareinstallation", "hookupandleaktest-hvac", "hookupandleaktest-plumbing", "installmirrors&shelves", "roughclean", "carpetinstall", "landscaping&irrigationsystems", "landscaping&irrigationsystem", "paintfinal", "installgutters", "septicfinal")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw5", "back-splashinstall", "deliverappliances", "installappliances", "plumbingtrimout", "electricaltrimout", "blowerdoortest", "drywalltouchup", "wellequipmentinstall", "doorandtrimhardwareinstallation", "door&trimhardwareinstallation", "hookupandleaktest-hvac", "hookupandleaktest-plumbing", "installmirrors&shelves", "roughclean", "carpetinstall", "landscaping&irrigationsystems", "landscaping&irrigationsystem", "paintfinal", "installgutters", "septicfinal", "finalpaint", "watersysteminstall", "hookup&leaktest-hvac", "installmirrors&shelving", "hookup&leaktest-plumbing", "landscaping&clearing", "landscapinginstallation", "cityofcapecoralexteriorinspection", "landscraping&clearing")
 			THEN "Internal Finish"
 		WHEN 
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw4", "door&trimpackagedelivery", "cabinetdelivery", "installinteriordoors&trim", "cabinetinstallation", "templatecounter-tops", "hvactrimout", "installcountertops")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw4", "door&trimpackagedelivery", "cabinetdelivery", "installinteriordoors&trim", "cabinetinstallation", "templatecounter-tops", "hvactrimout", "installcountertops", "templatecountertops", "installcounter-tops", "installcounter-tops")
 			THEN "Internal Trim"
 		
 		WHEN
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("hookupandleaktest", "checkforstreetrepair", "finalgrade", "installgaragedoor", "pulldumpster", "insulationinspection", "drywallinstallation", "stucco", "verifyelectricalmeter", "windowsilinstall",  "windowsillinstall", "measureforshutters", "initialpaint", "ceramictile-floorsandwalls", "soffitsinstall")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("hookupandleaktest", "checkforstreetrepair", "finalgrade", "installgaragedoor", "pulldumpster", "insulationinspection", "drywallinstallation", "stucco", "verifyelectricalmeter", "windowsilinstall",  "windowsillinstall", "measureforshutters", "initialpaint", "ceramictile-floorsandwalls", "soffitsinstall", "soffitinstallation", "stuccocornerbeadinstall", "finalgrading")
 			THEN "Internal Rough"
 		
 		WHEN 
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw3", "dryin", "internalframing", "dry-ininspection", "f-channelinstallation", "septicinstallation", "win&extdoorsdelivery", "hvacrough", "windows&extdoorsinstallation", "culvertinstallation&inspection", "plubmingrough-in2", "plumbingrough-in2", "electricrough-in1", "roughgrade&drivewaycut", "driveway", "drywalldelivery", "framinginspection(hvac,plumbingandelectric)", "installshingles", "insulation", "wellrunoff")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw3", "dryin", "internalframing", "dry-ininspection", "f-channelinstallation", "septicinstallation", "win&extdoorsdelivery", "hvacrough", "windows&extdoorsinstallation", "culvertinstallation&inspection", "plubmingrough-in2", "plumbingrough-in2", "electricrough-in1", "roughgrade&drivewaycut", "driveway", "drywalldelivery", "framinginspection(hvac,plumbingandelectric)", "installshingles", "insulation", "wellrunoff", "shingleinstall", "insulationinstall", "initialsepticinspection", "windows&exteriordoorsdelivery", "culvertinstallation", "framinginspection(hvac,plumbing&electric)", "installdriveway", "septicinspection")
 			THEN "Framing"
 
 		WHEN
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("slabinspection", "schedulecutsheetinspect", "slabpour", "stuccograde", "blockdelivery", "trusspackagedelivery", "blockandbeam", "flyingtrusses", "beaminspection", "delivermetalframingpackage", "beampour", "deliverdumpster", "sheathinginstallation", "sheathinginspection")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("slabinspection", "schedulecutsheetinspect", "slabpour", "stuccograde", "blockdelivery", "trusspackagedelivery", "blockandbeam", "flyingtrusses", "beaminspection", "delivermetalframingpackage", "beampour", "deliverdumpster", "sheathinginstallation", "sheathinginspection", "blockinstall", "deliverdupster", "deliverdumpster(10/ydinitial)", "flyingtrussesandsheeting", "schedulecutsheetinspection", "slabblockandbeam")
 			THEN "Slab/Block/Beam"
 
 		WHEN
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw2", "scrapefilllandbuildpadandcompact", "siltfence", "verifyelectricapplicationisdone", "verifylandlockforwell", "verifynocwithetrakit", "verifytrusses/block/windows/well", "compactiontest", "hub&tac", "wellinstallation", "railhouse/footers", "undergroundplumbing", "undergroundplumbinginspection", "undergroundelectric", "verifyslabprepbeforeinspection")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("draw2", "scrapefilllandbuildpadandcompact", "siltfence", "verifyelectricapplicationisdone", "verifylandlockforwell", "verifynocwithetrakit", "verifytrusses/block/windows/well", "compactiontest", "hub&tac", "wellinstallation", "railhouse/footers", "undergroundplumbing", "undergroundplumbinginspection", "undergroundelectric", "verifyslabprepbeforeinspection", "hub&tack", "alternativeseawall", "scrape,fill,buildpad&compaction", "wellorder", "doalternativeseawall", "filllandbuildpadandcompact", "concreteseawallalreadyinstalled")
 			THEN "Site/Pad"
 
 		WHEN 
-			 LOWER(REPLACE(${title}, ' ', '')) IN ("lotsurvey", "trusslayout", "septicdesign", "energycalcs", "finalplanswithaddress", "septicapprovedwithhealthdept", "civilengineeringreview", "submitpermit", "permitapprovalprocess", "confirmpermit#hasbeencreatedatbuildingdept", "trussproduction", "loanclosing", "draw1", "permitapproved", "permitpaid")
+			 LOWER(REPLACE(${title}, ' ', '')) IN ("lotsurvey", "trusslayout", "septicdesign", "energycalcs", "finalplanswithaddress", "septicapprovedwithhealthdept", "civilengineeringreview", "submitpermit", "permitapprovalprocess", "confirmpermit#hasbeencreatedatbuildingdept", "trussproduction", "loanclosing", "draw1", "permitapproved", "permitpaid", "1stdraw", "permit", "septicpermit", "septicapproved", "septicpermitapproved", "septicpermitsubmitted", "trussproductionrequested")
 			THEN "Permitting"
 		
 		ELSE NULL

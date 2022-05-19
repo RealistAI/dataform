@@ -16,6 +16,7 @@ SELECT
 	ELSE
 		NULL
 	END AS completed,
-	assigned_to
+	assigned_to,
+	job_group
 FROM
 	${ref("schedule_clean")}

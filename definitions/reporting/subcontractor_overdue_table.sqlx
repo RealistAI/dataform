@@ -1,0 +1,17 @@
+config { type: "table" }
+
+SELECT
+	job_name,
+	title,
+	scheduled_start,
+	scheduled_end,
+	assigned_to
+FROM
+	${ref("schedule_clean")}
+WHERE
+	completed = False
+AND 
+	assigned_to IS NOT NULL
+AND 
+	scheduled_end <= DATE_SUB(CURRENT_DATE(), INTERVAL 2 DAY)
+	

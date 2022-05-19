@@ -1,6 +1,6 @@
 config { type: "table" }
 SELECT
-	*,
+	b.*,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT

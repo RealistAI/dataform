@@ -9,7 +9,8 @@ SELECT
 	assigned_to,
 	Duration__Days_ AS duration_days,
 	s.start as scheduled_start,
-	s.end as scheduled_end
+	s.end as scheduled_end,
+	phase as job_group
 FROM
 	${ref("schedule")} as s	
 		
