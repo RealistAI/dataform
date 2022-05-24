@@ -1,143 +1,25 @@
 config { type: "table" }
+
 SELECT
 	*,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Permitting' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Permitting' = a.phase)), 0) AS Permitting,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Site/Pad' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Site/Pad' = a.phase)), 0) AS Site_Pad,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Slab/Block/Beam' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Slab/Block/Beam' = a.phase)), 0) AS Slab_Block_Beam,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Framing' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Framing' = a.phase)), 0) AS Framing,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Rough' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Rough' = a.phase)), 0) AS Internal_Rough,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Trim' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Trim' = a.phase)), 0) AS Internal_Trim,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Finish' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Internal Finish' = a.phase)), 0) AS Internal_Finish,
-	COALESCE(
-                 SAFE_DIVIDE((
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Final Inspections' = a.phase
-                   AND a.completed = True), (
-                 SELECT
-                   COUNT(*)
-                 FROM
-                   dataform_production.schedule_clean a
-                 WHERE
-                   b.job_name = a.job_name
-                   AND 'Final Inspections' = a.phase)), 0) AS Final_Inspections	
+	CASE
+		WHEN Internal_Finish = 1.0
+			THEN "8 Final Inspections"
+		WHEN Internal_Trim = 1.0
+			THEN "7 Internal Finish"
+		WHEN Internal_Rough = 1.0
+			THEN "6 Internal Trim"
+		WHEN Framing = 1.0
+			THEN "5 Indernal Rough"
+		WHEN Slab_Block_Beam = 1.0
+			THEN "4 Framing"
+		WHEN Site_Pad = 1.0
+			THEN "3 Slab/Block/Beam"
+		WHEN Permitting = 1.0
+			THEN "2 Site/Pad"
+		WHEN Permitting < 1.0
+			THEN "1 Permitting"
+		ELSE "Unknown"
+	END AS Current_Phase
 FROM
-	${ref("jobsites_clean")} b
-WHERE
-	job_color = "Under Construction"
+	${ref("whitestone_master_schedule_staging_prod")}

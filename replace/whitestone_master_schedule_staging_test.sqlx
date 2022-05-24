@@ -1,4 +1,4 @@
-config { type: "table" }
+config { type: "view" }
 SELECT
 	*,
 	COALESCE(
@@ -9,7 +9,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Permitting' = a.phase
+                   AND '1 Permitting' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -17,7 +17,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Permitting' = a.phase)), 0) AS Permitting,
+                   AND '1 Permitting' = a.phase)), 0) AS Permitting,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -26,7 +26,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Site/Pad' = a.phase
+                   AND '2 Site/Pad' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -34,7 +34,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Site/Pad' = a.phase)), 0) AS Site_Pad,
+                   AND '2 Site/Pad' = a.phase)), 0) AS Site_Pad,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -43,7 +43,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Slab/Block/Beam' = a.phase
+                   AND '3 Slab/Block/Beam' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -51,7 +51,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Slab/Block/Beam' = a.phase)), 0) AS Slab_Block_Beam,
+                   AND '3 Slab/Block/Beam' = a.phase)), 0) AS Slab_Block_Beam,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -60,7 +60,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Framing' = a.phase
+                   AND '4 Framing' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -68,7 +68,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Framing' = a.phase)), 0) AS Framing,
+                   AND '4 Framing' = a.phase)), 0) AS Framing,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -77,7 +77,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Rough' = a.phase
+                   AND '5 Internal Rough' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -85,7 +85,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Rough' = a.phase)), 0) AS Internal_Rough,
+                   AND '5 Internal Rough' = a.phase)), 0) AS Internal_Rough,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -94,7 +94,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Trim' = a.phase
+                   AND '6 Internal Trim' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -102,7 +102,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Trim' = a.phase)), 0) AS Internal_Trim,
+                   AND '6 Internal Trim' = a.phase)), 0) AS Internal_Trim,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
@@ -111,7 +111,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Finish' = a.phase
+                   AND '7 Internal Finish' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -119,8 +119,8 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Internal Finish' = a.phase)), 0) AS Internal_Finish,
-	COALESCE(
+                   AND '7 Internal Finish' = a.phase)), 0) AS Internal_Finish,
+	COALESCE( 
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
@@ -128,7 +128,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Final Inspections' = a.phase
+                   AND '8 Final Inspections' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
@@ -136,7 +136,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Final Inspections' = a.phase)), 0) AS Final_Inspections	
+                   AND '8 Final Inspections' = a.phase)), 0) AS Final_Inspections	
 FROM
 	${ref("jobsites_clean")} b
 WHERE
