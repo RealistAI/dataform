@@ -1,4 +1,4 @@
-config { type: "table" }
+config { type: "view" }
 SELECT
 	*,
 	COALESCE(
@@ -6,120 +6,137 @@ SELECT
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 0' = a.phase
+                   AND '1 Permitting' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 0' = a.phase)), 0) AS Phase_0,
+                   AND '1 Permitting' = a.phase)), 0) AS Permitting,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 1' = a.phase
+                   AND '2 Site/Pad' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 1' = a.phase)), 0) AS Phase_1,
+                   AND '2 Site/Pad' = a.phase)), 0) AS Site_Pad,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 2' = a.phase
+                   AND '3 Slab/Block/Beam' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 2' = a.phase)), 0) AS Phase_2,
+                   AND '3 Slab/Block/Beam' = a.phase)), 0) AS Slab_Block_Beam,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 3' = a.phase
+                   AND '4 Framing' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 3' = a.phase)), 0) AS Phase_3,
+                   AND '4 Framing' = a.phase)), 0) AS Framing,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 4' = a.phase
+                   AND '5 Internal Rough' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 4' = a.phase)), 0) AS Phase_4,
+                   AND '5 Internal Rough' = a.phase)), 0) AS Internal_Rough,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 5' = a.phase
+                   AND '6 Internal Trim' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 5' = a.phase)), 0) AS Phase_5,
+                   AND '6 Internal Trim' = a.phase)), 0) AS Internal_Trim,
 	COALESCE(
                  SAFE_DIVIDE((
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 6' = a.phase
+                   AND '7 Internal Finish' = a.phase
                    AND a.completed = True), (
                  SELECT
                    COUNT(*)
                  FROM
-                   dataform.schedule_clean a
+                   dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Phase 6' = a.phase)), 0) AS Phase_6
+                   AND '7 Internal Finish' = a.phase)), 0) AS Internal_Finish,
+	COALESCE( 
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND '8 Final Inspections' = a.phase
+                   AND a.completed = True), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND '8 Final Inspections' = a.phase)), 0) AS Final_Inspections	
 FROM
 	${ref("jobsites_clean")} b
 WHERE
