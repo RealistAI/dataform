@@ -1,0 +1,31 @@
+config { type: "table" }
+
+SELECT
+	*,
+	CASE
+		WHEN Internal_Finish = 1.0
+			THEN "8 Final Inspection"
+		WHEN Internal_Trim = 1.0
+			THEN "7 Internal Finish"
+		WHEN Internal_Rough = 1.0
+			THEN "6 Internal Trim"
+		WHEN Framing = 1.0
+			THEN "5 Internal Rough"
+		WHEN Slab_Block_Beam = 1.0
+			THEN "4 Framing"
+		WHEN Site_Pad = 1.0
+			THEN "3 Slab/Block/Beam"
+		WHEN Permitting = 1.0
+			THEN "2 Site/Pad"
+		WHEN Permitting < 1.0
+			THEN "1 Permitting"
+		ELSE "Unknown"
+	END AS Current_Phase
+FROM
+	${ref("whitestone_master_schedule_staging_test")}
+
+WHERE
+	owner LIKE ("Private%")
+OR
+	owner LIKE ("PRIVATE%")
+

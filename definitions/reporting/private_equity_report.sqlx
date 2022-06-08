@@ -1,0 +1,21 @@
+config {type : 'table'}
+
+SELECT
+  job_color,
+  job_name,
+  job_id,
+  county,
+  project_manager,
+  job_groups,
+  model,
+  lender,
+  loan_type,
+  owner,
+  referral_source,
+  status
+FROM 
+  ${ref('jobsites_clean')}
+WHERE
+  owner LIKE ('Private%')
+OR
+  owner LIKE ('PRIVATE%')  

@@ -1,0 +1,17 @@
+config {type : 'table'}
+
+SELECT
+  s.job_name,
+  s.title,
+  s.phase,
+  s.completed,
+  s.assigned_to,
+  s.job_group,
+  pr.owner
+FROM
+  ${ref('whitestone_job_schedule')} s
+JOIN
+  ${ref('private_equity_report')} pr
+ON
+  s.job_name = pr.job_name
+
