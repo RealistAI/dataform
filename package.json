@@ -1,5 +1,7 @@
 {
   "name": "sample-pubsub",
+  "main": "index.js",
+  "type": "module",
   "version": "0.0.1",
   "dependencies": {
     "@dataform/api": "^1.2.0",
