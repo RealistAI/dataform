@@ -23,3 +23,5 @@ SELECT
 	END AS Current_Phase
 FROM
 	${ref("whitestone_master_schedule_staging_prod")}
+WHERE
+	job_color = "Under Construction"

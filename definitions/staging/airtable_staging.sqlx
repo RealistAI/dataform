@@ -1,6 +1,7 @@
-config { type: "table" }
+config { type: "view" }
 
 SELECT
+	j.job_color as Stage,
 	j.job_name AS Site_Address,
 	j.owner AS Client_Name,
 	j.lender AS Lender,
@@ -41,6 +42,8 @@ SELECT
 		s.title = "Energy Calcs"
 	) AS Energy_Calcs
 FROM
-	${ref("whitestone_master_schedule_test")} j
+	${ref("jobsites_clean")} j
 WHERE
-	j.current_phase = "1 Permitting"
+	job_color = "In Permitting"
+OR
+	job_color = "Pre-Permitting"

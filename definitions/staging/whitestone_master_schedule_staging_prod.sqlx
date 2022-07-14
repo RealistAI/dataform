@@ -136,8 +136,6 @@ SELECT
                    dataform_production.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND '8 Final Inspections' = a.phase)), 0) AS Final_Inspections	
+                   AND '8 Final Inspections' = a.phase)), 0) AS Final_Inspections
 FROM
 	${ref("jobsites_clean")} b
-WHERE
-	job_color = "Under Construction"
