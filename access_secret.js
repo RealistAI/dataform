@@ -1,16 +1,18 @@
+import {SecretManagerServiceClient} from '@google-cloud/secret-manager'
+
 /**
  * TODO(developer): Uncomment these variables before running the sample.
  */
 const name = 'projects/michael-gilbert-dev/secrets/${secret_id}/versions/latest';
 
 // Imports the Secret Manager library
-const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
+//const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
 
 // Instantiates a client
 const client = new SecretManagerServiceClient();
 
-async function accessSecretVersion(projectId, secretId, versionId) {
-  const [version] = await client.accessSecretVersion({
+export function accessSecretVersion(projectId, secretId, versionId) {
+  const [version] = client.accessSecretVersion({
     name: name,
   });
 
@@ -26,5 +28,3 @@ async function accessSecretVersion(projectId, secretId, versionId) {
   const bucket_name = payload['bucket_name']
   return username, password, bucket_name, dataset;
 }
-
-exports.accessSecretVersion = accessSecretVersion;

@@ -1,13 +1,13 @@
-import accessSecretVersion from './access_secret.js';
-const access_secret = require('./access_secret');
-const { execSync } = require("child_process");
+import {accessSecretVersion} from './access_secret.js';
+
+import { execSync } from "child_process";
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
-exports.helloPubSub = (event, context) => {
+async function helloPubSub(event, context) {
   const message = event.data
     ? Buffer.from(event.data, 'base64').toString()
     : company_name = event['company_name'];
