@@ -12,7 +12,7 @@ async function helloPubSub(event, context) {
     ? Buffer.from(event.data, 'base64').toString()
     : company_name = event['company_name'];
     if (company_name != null){
-	const access_secret = accessSecretVersion('michael-gilber-dev', 'company_name', 'latest');
+	const access_secret = accessSecretVersion('michael-gilber-dev', company_name, 'latest');
     };
   console.log(message);
   console.log(typeof access_secret);
