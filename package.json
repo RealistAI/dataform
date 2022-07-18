@@ -1,21 +1,19 @@
 {
   "name": "sample-pubsub",
-  "main": "index.js",
-  "type": "module",
   "version": "0.0.1",
   "dependencies": {
     "@google-cloud/secret-manager": "*",
-    "@dataform/api": "^1.2.0",
-    "@dataform/cli": "^1.6.4",
-    "@dataform/core": "1.20.2",
+    "@dataform/api": "^1.6.4",
+    "@dataform/cli": "^1.22.1",
+    "@dataform/core": "1.22.1",
     "@dataform/protos": "1.6.4",
-    "@dataform/assertion_utils": "1.20.2",
+    "@dataform/assertion_utils": "1.22.1",
     "@dataform/sqlx": "1.6.4",
     "@dataform/crossdb": "1.8.4",
     "@dataform/sql": "0.4.0",
     "@dataform/grpc-web-proxy": "0.2.0",
     "@dataform/tests": "0.0.2-beta.6",
-    "@google-cloud/pubsub": "^0.18.0",
+    "@google-cloud/pubsub": "^3.1.0",
     "execSync": "1.0.2"
   }
 }

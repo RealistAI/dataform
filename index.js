@@ -1,6 +1,6 @@
-import {accessSecretVersion} from './access_secret.js';
+const {accessSecretVersion} = require('./access_secret.js');
 
-import { execSync } from "child_process";
+const {execSync} = require("child_process");
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
@@ -12,8 +12,8 @@ async function helloPubSub(event, context) {
     ? Buffer.from(event.data, 'base64').toString()
     : company_name = event['company_name'];
     if (company_name != null){
-	const access_secret = accessSecretVersion('michael-gilber-dev', company_name, 'latest');
-    }
+	const access_secret = accessSecretVersion('michael-gilber-dev', 'company_name', 'latest');
+    };
   console.log(message);
   console.log(typeof access_secret);
   execSync("./deploy_test.sh");
