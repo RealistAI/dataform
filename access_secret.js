@@ -1,6 +1,6 @@
 const {SecretManagerServiceClient} = require('@google-cloud/secret-manager');
-
-const name = 'projects/michael-gilbert-dev/secrets/whitestone/versions/latest';
+const {company_name} = require('./index.js')
+const name = `projects/michael-gilbert-dev/secrets/${company_name}/versions/latest`;
 
 // Instantiates a client
 const client = new SecretManagerServiceClient();
