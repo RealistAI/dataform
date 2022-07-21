@@ -1,6 +1,6 @@
-const {accessSecretVersion} = require('./access_secret.js');
-
 const {execSync} = require("child_process");
+const { get_company_name } = require('./get_company_name.js');
+const { access_secret, accessSecretVersion } = require('./access_secret.js');
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
@@ -8,16 +8,12 @@ const {execSync} = require("child_process");
  * @param {!Object} context Metadata for the event.
  */
 exports.helloPubSub = (event, context) => {
-  const message = event.data
-  ? Buffer.from(event.data, 'base64').toString()
-  : company_name = event['company_name'];
-  console.log(company_name);
-  if (company_name != null){
-    const access_secret = accessSecretVersion('michael-gilber-dev',company_name, 'latest');
-  return company_name
-  };
-  console.log(message);
-  console.log(typeof access_secret);
-  execSync("./deploy_test.sh");
+	const message = event.data
+		? Buffer.from(event.data, 'base64').toString()
+    		: event.data;
+		company_name = get_company_name(message);
+		company_info = access_secret(company_name);
+		console.log(company_info);
+//  execSync("./deploy_test.sh");
 
 };
