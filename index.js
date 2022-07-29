@@ -18,9 +18,10 @@ exports.helloPubSub = (event, context) => {
     		: event.data;
 		company_name = get_company_name(message);
 	if (company_name == 'whitestone'){
+		console.log ('Getting company secrets');
 		company_info = accessSecret(project_id, company_name);
 //  execSync("./deploy_test.sh");
         } else {
-	  console.log('Failed. Company name is not whitestone');
+	  return;
         }
 };
