@@ -1,0 +1,13 @@
+config {type: 'view'}
+
+SELECT
+  q.*
+FROM
+  `michael-gilbert-dev.mikes_dont_use.best_company_*` q
+WHERE
+  _TABLE_SUFFIX = (
+    SELECT
+      MAX(_TABLE_SUFFIX)
+    FROM
+      `michael-gilbert-dev.mikes_dont_use.best_company_*`
+    ) 

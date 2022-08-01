@@ -1,5 +1,5 @@
-config { type: "table" }
-
+config { type: "table",
+  disabled: true}
 SELECT
 	job_name,
 	title,

@@ -1,5 +1,5 @@
-config { type: "table" }
-
+config { type: "table",
+  disabled: true}
 SELECT
 	*,
 	CASE
@@ -22,4 +22,4 @@ SELECT
 		ELSE "Unknown"
 	END AS Current_Phase
 FROM
-	${ref("whitestone_master_schedule_staging_test")}
+  ${ref("whitestone_master_schedule_staging_test")}

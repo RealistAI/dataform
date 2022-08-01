@@ -1,8 +1,7 @@
 config {
   type: "view",
-
+disabled: true
 }
-
 SELECT
     t.*
 FROM

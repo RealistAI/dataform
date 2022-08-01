@@ -1,5 +1,5 @@
-config { type: "view" } 
-
+config { type: "view",
+  disabled: true} 
 SELECT
 	f.job_name,
 	${phase_count.phase_count("f.title")} AS phase,

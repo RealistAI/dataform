@@ -1,0 +1,20 @@
+config { type: 'table' }
+
+SELECT
+  cost_codes,
+  Vendor_Name,
+  QTY,
+  Unit_Cost_1,
+  total_cost,
+  Date, 
+  NOTES,
+  Vendor_Name_1,
+  QTY_1,
+  increase,
+  total_cost_1,
+  Date_1,
+  Cost_Difference  
+FROM
+  ${ref('master_price_list')}
+LIMIT 
+  83

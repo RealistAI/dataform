@@ -1,0 +1,11 @@
+config {type : 'table'}
+
+SELECT
+  job_name as address,
+  title,
+  phase AS scheduled_item,
+  completed
+  
+FROM
+  ${ref('schedule_clean')}
+  

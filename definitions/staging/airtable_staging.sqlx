@@ -1,5 +1,5 @@
-config { type: "view" }
-
+config { type: "view",
+  disabled: true }
 SELECT
 	j.job_color as Stage,
 	j.job_name AS Site_Address,

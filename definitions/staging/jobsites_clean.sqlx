@@ -1,4 +1,5 @@
-config { type: "table" }
+config { type: "table",
+  disabled: true}
 
 SELECT
 	${color_codes.color_mapping("job_color")} AS job_color,

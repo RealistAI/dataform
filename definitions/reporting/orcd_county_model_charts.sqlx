@@ -1,5 +1,5 @@
-config { type: "table" }
-
+config { type: "table",
+  disabled: true}
 SELECT
 	dj.Job,
 	f.Model,

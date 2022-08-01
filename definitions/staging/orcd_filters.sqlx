@@ -1,5 +1,5 @@
-config { type: "view" }
-
+config { type: "view",
+  disabled: true}
 SELECT
 	j.Name AS job_name,
 	${color_codes.color_mapping("j.Job_Color")} AS Job_Color,
