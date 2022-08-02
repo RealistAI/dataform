@@ -6,4 +6,11 @@ SELECT
 	model
 FROM
   ${ref('jobsites_clean')}
-  
+WHERE
+	job_name NOT LIKE "%Test%"
+AND
+	job_name NOT LIKE "%TEST%"
+AND
+	model = "Valencia"
+AND
+	qb_name IS NOT NULL

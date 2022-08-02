@@ -3,6 +3,13 @@ config { type: "table"}
 SELECT
 	job_name,
 	title as scheduled_item,
-	completed
+	completed,
+	assigned_to
 FROM
 	${ref("schedule_clean")}
+WHERE
+	job_name NOT LIKE "%Test%"
+AND
+	job_name NOT LIKE "%TEST%"
+AND
+	job_name != "Quote-John & Mary Smith (Barcelona Plat)"
