@@ -1,0 +1,8 @@
+config { type: "table"}
+
+SELECT
+	job_name,
+	title as scheduled_item,
+	completed
+FROM
+	${ref("schedule_clean")}

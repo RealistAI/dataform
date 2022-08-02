@@ -1,7 +1,0 @@
-config {type: 'table'}
-
-SELECT
-  b.*,
-  q.*
-FROM
-  ${ref('buildertrend_list')} b, ${ref('quickbooks_list_clean')} q

@@ -1,0 +1,9 @@
+config {type : 'table'}
+
+SELECT
+	job_name,
+	qb_name,
+	model
+FROM
+  ${ref('jobsites_clean')}
+  

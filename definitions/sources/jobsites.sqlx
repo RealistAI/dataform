@@ -1,6 +1,5 @@
 config { 
   type: "view",
-  disabled: true, 
   assertions: {
     nonNull: ["Name", "Job_Color"]
   }

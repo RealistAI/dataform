@@ -1,5 +1,4 @@
-config { type: "table",
-  disabled: true}
+config { type: "table" }
 
 SELECT
 	${color_codes.color_mapping("job_color")} AS job_color,
@@ -13,7 +12,8 @@ SELECT
 	loan_type_ AS loan_type,
 	owner,
 	referral_source_ AS referral_source,
-	Status AS status
+	Status AS status,
+	qb_exact_job_name_ as qb_name
 FROM
 	${ref("jobsites")}
 	

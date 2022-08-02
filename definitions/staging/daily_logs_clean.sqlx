@@ -1,0 +1,20 @@
+config { type: "table" }
+
+SELECT 
+	t.job,
+	t.log_notes,
+	t.log_date
+FROM
+	${ref("daily_logs")} t
+INNER JOIN(
+	SELECT
+		job,
+		MAX(log_date) as max_date
+	FROM
+		${ref("daily_logs")}
+	GROUP BY
+		job
+	) tm 
+ON
+	 t.job = tm.job AND t.log_date = tm.max_date
+
