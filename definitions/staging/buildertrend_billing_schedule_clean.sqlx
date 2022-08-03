@@ -4,6 +4,7 @@ SELECT
 	job_name,
 	title as scheduled_item,
 	completed,
+	scheduled_end,
 	assigned_to
 FROM
 	${ref("schedule_clean")}

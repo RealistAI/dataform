@@ -4,6 +4,7 @@ SELECT
 	j.job_name,
 	j.qb_name,
 	s.scheduled_item,
+	s.scheduled_end,
 	s.completed,
 	j.model,
 	s.assigned_to
