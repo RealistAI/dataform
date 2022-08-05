@@ -1,0 +1,217 @@
+config { type: "table"}
+SELECT
+	*,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Permit Approval Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Permit Approval Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS permit_approval_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Site Work Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Site Work Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS site_work_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Slab Pour Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Slab Pour Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS slab_pour_draw,
+	 COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Block & Beam Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name 
+                   AND 'Block & Beam Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS block_beam_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Framing Windows Roofing Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Framing Windows Roofing Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS framing_windows_roofing_draw,
+	 COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Drywall Stucco Paint Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Drywall Stucco Paint Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS drywall_stucco_paint_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'HVAC Plumbing & Trim Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'HVAC Plumbing & Trim Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS hvac_plumbing_trim_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Exterior' = a.tag
+                   AND a.completed = True
+	  	   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Exterior' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS exterior_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Flooring Cabinet Countertops Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Flooring Cabinet Countertops Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS flooring_cabinet_countertops_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Seawall' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Seawall' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS seawall_draw,
+	COALESCE(
+                 SAFE_DIVIDE((
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Final Draw' = a.tag
+                   AND a.completed = True
+		   AND a.tag IS NOT NULL), (
+                 SELECT
+                   COUNT(*)
+                 FROM
+                   dataform_test.schedule_clean a
+                 WHERE
+                   b.job_name = a.job_name
+                   AND 'Final Draw' = a.tag
+		   AND a.tag IS NOT NULL)), 0) AS final_draw,
+	 	   
+FROM
+	${ref('jobsites_clean')} b
+WHERE
+	job_color = 'Under Construction'
