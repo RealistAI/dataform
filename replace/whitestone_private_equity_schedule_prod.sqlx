@@ -22,7 +22,7 @@ SELECT
 		ELSE "Unknown"
 	END AS Current_Phase
 FROM
-	${ref("whitestone_master_schedule_staging_test")}
+	${ref("whitestone_master_schedule_staging_prod")}
 
 WHERE
 	owner LIKE ("Private%")

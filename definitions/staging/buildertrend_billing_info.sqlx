@@ -1,0 +1,22 @@
+config { type: "table" }
+
+SELECT
+	j.job_name,
+	j.qb_name,
+	s.scheduled_item,
+	s.scheduled_end,
+	s.completed,
+	j.model,
+	s.assigned_to
+FROM
+	${ref("buildertrend_billing_jobsites_clean")} j
+LEFT JOIN
+	${ref("buildertrend_billing_schedule_clean")} s
+ON
+	j.job_name = s.job_name
+WHERE
+	j.job_name != "ZZ Test"
+AND
+	j.model = "Valencia"
+AND
+	j.qb_name IS NOT NULL

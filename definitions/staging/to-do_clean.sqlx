@@ -1,0 +1,8 @@
+config {type: 'table',
+  disabled: true}
+
+SELECT
+  t.*
+FROM
+  ${ref('to-do')} t
+

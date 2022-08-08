@@ -1,0 +1,10 @@
+config { type: "table" }
+
+SELECT 
+	job,
+	log_notes,
+	log_date
+FROM
+	${ref("daily_logs")} t
+WHERE
+	job NOT LIKE "%TEST%"

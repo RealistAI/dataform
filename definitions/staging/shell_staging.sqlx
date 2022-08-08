@@ -1,5 +1,5 @@
-config { type: "view" }
-
+config { type: "view", 
+  disabled: true}
 SELECT
 	c.Job AS Job,
 	c.Title AS Title,

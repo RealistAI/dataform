@@ -1,4 +1,5 @@
-config { type: "view" }
+config { type: "view" ,
+  disabled: true}
 SELECT
 	*,
 	COALESCE(

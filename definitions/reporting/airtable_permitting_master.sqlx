@@ -1,0 +1,14 @@
+config { type: "table",
+  disabled: true}
+
+SELECT
+	*
+FROM
+	${ref("airtable_staging")}
+WHERE
+	Site_Address NOT LIKE ('%ZZ%')
+AND
+	Site_Address NOT LIKE ('%TEST%')
+ORDER BY
+	Stage
+DESC

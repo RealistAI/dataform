@@ -1,0 +1,49 @@
+config { type: "view",
+  disabled: true }
+SELECT
+	j.job_color as Stage,
+	j.job_name AS Site_Address,
+	j.owner AS Client_Name,
+	j.lender AS Lender,
+	(SELECT 
+		s.completed 
+	FROM
+		${ref("schedule_clean")} s
+	WHERE
+		s.job_name = j.job_name
+	AND
+		s.title = "Verify Electrical Meter"
+	) AS Meter_Location_Requested,
+	(SELECT 
+		s.completed 
+	FROM
+		${ref("schedule_clean")} s
+	WHERE
+		s.job_name = j.job_name
+	AND
+		s.title = "Well Installation"
+	) AS Well_Ordered,
+	(SELECT 
+		s.completed 
+	FROM
+		${ref("schedule_clean")} s
+	WHERE
+		s.job_name = j.job_name
+	AND
+		s.title = "Windows & Exterior Doors Delivery"
+	) AS Windows_And_Doors_Ordered,
+	(SELECT 
+		s.completed 
+	FROM
+		${ref("schedule_clean")} s
+	WHERE
+		s.job_name = j.job_name
+	AND
+		s.title = "Energy Calcs"
+	) AS Energy_Calcs
+FROM
+	${ref("jobsites_clean")} j
+WHERE
+	job_color = "In Permitting"
+OR
+	job_color = "Pre-Permitting"

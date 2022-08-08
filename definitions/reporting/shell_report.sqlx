@@ -1,9 +1,9 @@
-config { type: "view", 
+config { type: "view",
+         disabled: true, 
 	 assertions: {
 	 	nonNull: ["Job", "Job_Color",]
                      }
        }
-
 SELECT
 	Job,
 	Title,
