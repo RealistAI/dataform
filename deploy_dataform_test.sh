@@ -1,1 +1,1 @@
-gcloud functions deploy whitestone-dataform_test --service-account=whitestone-dataform@michael-gilbert-dev.iam.gserviceaccount.com --runtime=nodejs16 --entry-point=helloPubSub --trigger-topic=micahs_dataform_test
+gcloud functions deploy whitestone-dataform_invoice_test --service-account=whitestone-dataform@michael-gilbert-dev.iam.gserviceaccount.com --runtime=nodejs16 --entry-point=helloPubSub --trigger-topic=micahs_dataform_test
