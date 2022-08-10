@@ -13,6 +13,8 @@ SELECT
 	phase as job_group,
         tag
 FROM
-	${ref("schedule")} as s	
-		
-
+	${ref("schedule")} as s
+WHERE 
+	tag IS NOT NULL		
+ORDER BY
+	tag

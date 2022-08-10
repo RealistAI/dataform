@@ -9,7 +9,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Permit Approval Draw' = a.tag
+                   AND '2-Permit Approval Draw' = a.tag
                    AND a.completed = True
 		   AND a.tag IS NOT NULL), (
                  SELECT
@@ -18,7 +18,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Permit Approval Draw' = a.tag
+                   AND '2-Permit Approval Draw' = a.tag
 		   AND a.tag IS NOT NULL)), 0) AS permit_approval_draw,
 	COALESCE(
                  SAFE_DIVIDE((
@@ -28,7 +28,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Site Work Draw' = a.tag
+                   AND '3-Site Work Draw' = a.tag
                    AND a.completed = True
 		   AND a.tag IS NOT NULL), (
                  SELECT
@@ -37,7 +37,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Site Work Draw' = a.tag
+                   AND '3-Site Work Draw' = a.tag
 		   AND a.tag IS NOT NULL)), 0) AS site_work_draw,
 	COALESCE(
                  SAFE_DIVIDE((
@@ -47,16 +47,16 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Slab Pour Draw' = a.tag
+                   AND '4-Slab Pour Draw' = a.tag
                    AND a.completed = True
-		   AND a.tag IS NOT NULL), (
+		   AND a.tag IS NOT NULL ), (
                  SELECT
                    COUNT(*)
                  FROM
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Slab Pour Draw' = a.tag
+                   AND '4-Slab Pour Draw' = a.tag
 		   AND a.tag IS NOT NULL)), 0) AS slab_pour_draw,
 	 COALESCE(
                  SAFE_DIVIDE((
@@ -66,7 +66,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Block & Beam Draw' = a.tag
+                   AND '5-Block & Beam Draw' = a.tag
                    AND a.completed = True
 		   AND a.tag IS NOT NULL), (
                  SELECT
@@ -75,7 +75,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name 
-                   AND 'Block & Beam Draw' = a.tag
+                   AND '5-Block & Beam Draw' = a.tag
 		   AND a.tag IS NOT NULL)), 0) AS block_beam_draw,
 	COALESCE(
                  SAFE_DIVIDE((
@@ -199,7 +199,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Final Draw' = a.tag
+                   AND '8-Final Draw' = a.tag
                    AND a.completed = True
 		   AND a.tag IS NOT NULL), (
                  SELECT
@@ -208,7 +208,7 @@ SELECT
                    dataform_test.schedule_clean a
                  WHERE
                    b.job_name = a.job_name
-                   AND 'Final Draw' = a.tag
+                   AND '8-Final Draw' = a.tag
 		   AND a.tag IS NOT NULL)), 0) AS final_draw,
 	 	   
 FROM
