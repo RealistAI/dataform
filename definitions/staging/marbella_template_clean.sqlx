@@ -5,6 +5,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name as vendor_name,
 	qty as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (unit_cost_1))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty*unit_cost_1))) as total_cost
 FROM
@@ -15,6 +16,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_1 as vendor_name,
 	qty_1 as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_1*increase))) as total_cost
 FROM
@@ -25,6 +27,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_2 as vendor_name,
 	qty_2 as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase_1))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_2*increase_1))) as total_cost
 FROM
@@ -35,6 +38,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_3 as vendor_name,
 	qty_3 as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase_2))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_3*increase_2))) as total_cost
 FROM
@@ -45,6 +49,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_4 as vendor_name,
 	qty_4 as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase_3))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_4*increase_3))) as total_cost
 FROM
@@ -55,6 +60,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_5 as vendor_name,
 	qty_5 as qty,
+        'Marbella Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase_4))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_5*increase_4))) as total_cost
 FROM

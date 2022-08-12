@@ -1,6 +1,24 @@
 config { type: "table" }
 SELECT
-	t.*
+	t.Unnamed__0,
+	t.Vendor_Name,
+	t.QTY,
+	t.Increase,
+	t.Total_Cost,
+	t.Date,
+	t.Cost_Difference,
+	t.Vendor_Name_1,
+	t.QTY_1,
+	t.Increase_1,
+	t.Total_Cost_1,
+	t.Date_1,
+	t.Cost_Difference_1,
+	t.Vendor_Name_2,
+	CAST(t.QTY_2 AS FLOAT64) AS qty_2,
+	CAST(t.increase_2 AS FLOAT64) AS increase_2,
+	t.Total_Cost_2,
+	t.Date_2,
+	t.Cost_Difference_2
 FROM
 	`michael-gilbert-dev.mikes_dont_use.sevilla platinum_csv_*` t
 WHERE

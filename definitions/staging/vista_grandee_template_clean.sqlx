@@ -5,6 +5,7 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name as vendor_name,
 	qty as qty,
+        'Vista Grandee Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (unit_cost_1))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty*unit_cost_1))) as total_cost
 FROM
@@ -15,28 +16,20 @@ SELECT
 	unnamed__0 as cost_code,
 	vendor_name_1 as vendor_name,
 	qty_1 as qty,
+        'Vista Grandee Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_1*increase))) as total_cost
 FROM
 	${ref("vista_grandee_template")}
 UNION ALL
 SELECT
-	'01/01/2022' as quote_date, 
+	'07/15/2022' as quote_date, 
 	unnamed__0 as cost_code,
 	vendor_name_2 as vendor_name,
 	qty_2 as qty,
+        'Vista Grandee Template' AS model,
 	CONCAT('$ ',FORMAT("%'.2f", (increase_1))) as unit_cost,
 	CONCAT('$ ',FORMAT("%'.2f", (qty_2*increase_1))) as total_cost
-FROM
-	${ref("vista_grandee_template")}
-UNION ALL
-SELECT
-	'07/15/2022' as quote_date, 
-	unnamed__0 as cost_code,
-	vendor_name_3 as vendor_name,
-	qty_3 as qty,
-	CONCAT('$ ',FORMAT("%'.2f", (increase_2))) as unit_cost,
-	CONCAT('$ ',FORMAT("%'.2f", (qty_3*increase_2))) as total_cost
 FROM
 	${ref("vista_grandee_template")}
 
