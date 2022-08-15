@@ -1,20 +1,100 @@
 config { type: 'table' }
 
-SELECT
-  cost_codes,
-  Vendor_Name,
-  QTY,
-  Unit_Cost_1,
-  total_cost,
-  Date, 
-  NOTES,
-  Vendor_Name_1,
-  QTY_1,
-  increase,
-  total_cost_1,
-  Date_1,
-  Cost_Difference  
+SELECT 
+  *
 FROM
-  ${ref('master_price_list')}
-LIMIT 
-  83
+  ${ref('barcelona_platinum_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('barcelona_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('duplex_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('granada_platinum_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('granada_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('knight_andalucia_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('la_escapada_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('las_palmas_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('marbella_platinum_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('marbella_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('sevilla_platinum_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('valencia_platinum_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('valencia_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+UNION ALL
+SELECT 
+  *
+FROM
+  ${ref('vista_grandee_template_clean')}
+WHERE 
+  vendor_name IS NOT NULL
+

@@ -1,0 +1,11 @@
+config { type: "table" }
+SELECT
+	t.*
+FROM
+	`michael-gilbert-dev.mikes_dont_use.knight - andalucia model_csv_*` t
+WHERE
+	_TABLE_SUFFIX = (
+	SELECT
+		MAX(_TABLE_SUFFIX)
+	FROM
+		`michael-gilbert-dev.mikes_dont_use.knight - andalucia model_csv_*`)

@@ -1,0 +1,34 @@
+config { type: "table" }
+SELECT
+	t.Unnamed__0,
+        t.Vendor_Name,
+	t.QTY,
+	t.Unit_Cost_1,
+	t.Total_Cost,
+	t.Date,
+	t.Vendor_Name_1,
+	t.QTY_1,
+	SAFE_CAST(t.Increase AS FLOAT64) AS increase,
+	t.Total_Cost_1,
+	t.Date_1,
+	t.Cost_Difference,
+	t.Vendor_Name_2,
+        t.qty_2,
+	t.Increase_1,
+	t.Total_Cost_2,
+	t.Date_2,
+	t.Cost_Difference_1,
+	t.Vendor_Name_3,
+	t.QTY_3,
+	t.Increase_2,
+	t.Total_Cost_3,
+	t.Date_3,
+	t.Cost_Difference_2
+FROM
+	`michael-gilbert-dev.mikes_dont_use.la escapada template_csv_*` t
+WHERE
+	_TABLE_SUFFIX = (
+	SELECT
+		MAX(_TABLE_SUFFIX)
+	FROM
+		`michael-gilbert-dev.mikes_dont_use.la escapada template_csv_*`)
