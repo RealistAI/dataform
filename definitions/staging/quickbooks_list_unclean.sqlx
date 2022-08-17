@@ -1,6 +1,0 @@
-config {type: 'table'}
-
-SELECT
-  *
-FROM
-  ${ref('quickbooks_list')}

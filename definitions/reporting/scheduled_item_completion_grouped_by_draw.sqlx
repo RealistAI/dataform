@@ -1,0 +1,20 @@
+config { type: "table" }
+  
+SELECT
+        JobId AS job_id,
+        job AS job_name,
+        title,
+        ${tag_order.tag_order("tag")} AS tag,
+        completed,
+        assigned_to,
+        Duration__Days_ AS duration_days,
+        s.start as scheduled_start,
+        s.end as scheduled_end,
+        phase as job_group,
+        tag as draw_stage
+FROM
+        ${ref("schedule")} as s
+WHERE
+        tag IS NOT NULL
+ORDER BY
+        tag

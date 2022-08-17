@@ -1,9 +1,0 @@
-config {type: 'table'}
-
-SELECT
-  ShipAddr.Line1 AS shipping_address,
-  BillAddr.Line3 As billing_address,
-  CustomerRef.name AS Customer_name,
-  MetaData.LastModifiedByRef.value As Invoice_id
-FROM
-  ${ref('quickbooks_list')}

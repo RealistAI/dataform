@@ -1,0 +1,41 @@
+function tag_order(tag) {
+	return `CASE 
+		WHEN 
+			 LOWER(REPLACE(${tag}, ' ', '')) = "2-permitapprovaldraw"
+			THEN "1 Permit Approval Draw"
+    	  	WHEN 
+			 LOWER(REPLACE(${tag}, ' ', '')) = "3-siteworkdraw"
+			THEN "2 Site Work Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "4-slabpourdraw"
+                        THEN "3 Slab Pour Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "5-block&beamdraw"
+                        THEN "4 Block & Beam Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "framingwindowsroofingdraw"
+                        THEN "5 Framing Windows Roofing Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "drywallstuccopaintdraw"
+                        THEN "6 Drywall Stucco Paint Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "hvacplumbing&trimdraw"
+                        THEN "7 HVAC Plumbing & Trim Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "exterior"
+                        THEN "8 Exterior"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "flooringcabinetcountertopsdraw"
+                        THEN "9 Flooring Cabinet Countertops Draw"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "seawall"
+                        THEN "10 Seawall"
+		WHEN
+                         LOWER(REPLACE(${tag}, ' ', '')) = "finaldraw"
+                        THEN "11 Final Draw"
+      		ELSE NULL
+		END`;
+}
+
+
+module.exports = { tag_order };
