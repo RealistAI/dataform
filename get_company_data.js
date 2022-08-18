@@ -1,16 +1,17 @@
 // Import the Google  Cloud client library
 const {BigQuery} = require('@google-cloud/bigquery');
+const {project_id_1} = require('./includes/constants.js');
 const bigquery = new BigQuery();
- 
 
-async function queryDestinationTable(company_name) {
+
+let company_id = 'placeholder_6e49847f-11f7-462d-bb34-61ff460184ec';
+
+async function get_company_data(company_id) {
   // Queries the U.S. given names dataset for the state of Texas
 
-  const query = `SELECT com_info.company_id, sch_info.phase, sch_info.schedule_item
-    FROM \`michael-gilbert-dev.brain_test.company_info\` AS com_info
-    JOIN \`michael-gilbert-dev.brain_test.schedule_info\` AS sch_info 
-    ON com_info.company_id = sch_info.company_id
-    WHERE com_info.company_id = ${company_name}`;
+  const query = `SELECT company_id, phase, schedule_item
+    FROM \`${project_id_1}.brain_test.schedule_info\` 
+    WHERE company_id = '${company_id}'`;
   
   // For all options, see https://cloud.google.com/bigquery/docs/reference/rest/v2/jobs/query
   const options = {
@@ -29,6 +30,9 @@ async function queryDestinationTable(company_name) {
   // Print the results
   console.log('Rows:');
   rows.forEach(row => console.log(row));
-}
 
-module.exports = { queryDestinationTable };
+  const phase_1 = rows.find(({phase})=> phase = 'phase_1')
+  console.log(phase_1);
+}
+get_company_data(company_id);
+//module.exports = { get_company_data };
