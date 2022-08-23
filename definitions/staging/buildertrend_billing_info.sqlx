@@ -16,7 +16,4 @@ ON
 	j.job_name = s.job_name
 WHERE
 	j.job_name != "ZZ Test"
-AND
-	j.model = "Valencia"
-AND
-	j.qb_name IS NOT NULL
+

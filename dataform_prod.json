@@ -1,7 +1,7 @@
 {
     "warehouse": "bigquery",
-    "defaultSchema": "_dataform_production",
-    "assertionSchema": "dataform_assertions",
+    "defaultSchema": "whitestone_dataform_production",
+    "assertionSchema": "whitestone_dataform_assertions",
     "defaultDatabase": "michael-gilbert-dev",
     "useRunCache": false
 }

@@ -138,6 +138,78 @@ function job_name(name) {
 		WHEN
                          LOWER(REPLACE(${name}, ' ', '')) = "1903nw29thave"
                         THEN "1903 NW 29th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1428nw27thpl"
+                        THEN "1428 NW 27th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1734nw6thpl,capecoral"
+                        THEN "1734 NW 6th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1324nw15thter"
+                        THEN "1324 NW 15th Ter"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1809nw17thter"
+                        THEN "1809 NW 17th Ter"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2103nw24thavecapecoral"
+                        THEN "2103 NW 24th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1536nw24thave,capecoral"
+                        THEN "1536 NW 24th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "519nw14thst,capecoral"
+                        THEN "519 NW 14th St"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1539ne36thln"
+                        THEN "1539 NE 36th Ln"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1313nw24thter,capecoral"
+                        THEN "1313 NW 24th Ter"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2601nw26thter"
+                        THEN "2601 NW 26th Ter"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1024nw12thave"
+                        THEN "1024 NW 12th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2223nw8thpl"
+                        THEN "2223 NW 8th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2018nw21stst"
+                        THEN "2018 NW 21st St"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2206nw2ndave"
+                        THEN "2206 NW 2nd Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "536nw20thst"
+                        THEN "536 NW 20th St"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1905nw21stpl"
+                        THEN "1905 NW 21st Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "3802ne8thpl"
+                        THEN "3802 NE 8th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "3323ne13thave"
+                        THEN "3323 NE 13th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "2912nw22ndave"
+                        THEN "2912 NW 22nd Ave"
+		WHEN                       
+      			 LOWER(REPLACE(${name}, ' ', '')) = "2920nw4thpl(p)"         
+     			THEN "2920 NW 4th Pl (P)"
+		WHEN
+			 LOWER(REPLACE(${name}, ' ', '')) = "1711nw7thave,capecoral"     
+                        THEN "1711 Nw 7th Ave"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "3230nw4thpl"     
+                        THEN "3230 NW 4th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "1730nw6thpl"     
+                        THEN "1730 NW 6th Pl"
+		WHEN
+                         LOWER(REPLACE(${name}, ' ', '')) = "522nw20thst,capecoral"     
+                        THEN "522 NW 20th St"
                 ELSE NULL
                 END`;
 }

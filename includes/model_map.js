@@ -174,7 +174,7 @@ function custom_mapping(model) {
 function model_mapping(model) {
 	return `CASE
 		WHEN CONTAINS_SUBSTR(${model}, 'Barcelona') = true
-			THEN "Barcelona"		
+			THEN "Barcelona"
 		WHEN CONTAINS_SUBSTR(${model}, 'Duplex') = true
 			THEN "Duplex"		
 		WHEN CONTAINS_SUBSTR(${model}, 'Duplex 3/2') = true

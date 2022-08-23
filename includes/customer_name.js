@@ -64,7 +64,7 @@ function customer_name(Line1) {
                          LOWER(REPLACE(${Line1}, ' ', '')) = "6907cedarruncir"
                         THEN "6907 Cedar Ruhn Cir"
 		WHEN
-                         LOWER(REPLACE(${Line1}, ' ', '')) = "alexanderbrandt:1711nw9thpl"
+                         LOWER(REPLACE(${Line1}, ' ', '')) IN ("alexanderbrandt:1711nw9thpl", "alexanderbrant:2018nw21stst")
                         THEN "Alexander Brandt"
 		WHEN
                          LOWER(REPLACE(${Line1}, ' ', '')) = "jim&ellenbulkley:4517nw30th"
@@ -93,7 +93,66 @@ function customer_name(Line1) {
 		WHEN
                          LOWER(REPLACE(${Line1}, ' ', '')) = "alexanderbrant:1711nw9thpl"
                         THEN "Alexander Brant"
-
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) IN ("privateequitysolutionsllc:3323ne13thave","privateequitysolutionsllc:1428nw27thpl",  "privateequitysolutionsllc:1539ne36thln", "privateequitysolutionsllc:3802ne8thpl")
+                        THEN "Private Equity Solutions LLC"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "15027srebellionct"
+                        THEN "15027 S Rebellion Ct"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "isaacr.beal:1809nw17thter"
+                        THEN "Isaac R Beal"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "1013bluffpassn"
+                        THEN "1013 Bluff Pass N"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "chase&nicoleehlers:1536nw24thave,capecoral"
+                        THEN "Chase & Nicole Ehlers"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "409springdalerd"
+                        THEN "409 Springdale Rd"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) IN ("jasonekert:1313nws4thter,capecoral", "jasonekert:1313nw24thter,capecoral")
+                        THEN "Jason Ekert"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "danieldepew:2601nw26thter"
+                        THEN "Daniel Depew"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "blakerumley:1024nw12thave"
+                        THEN "Blake Rumley"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "sudhapericharla(kishoregottumukkala):2223nw8thpl"
+                        THEN "Sudha Percharla (Kishore Gottumukkala)"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "krishnac.animireddy:2206nw2ndave"
+                        THEN "Krishna C Animireddy"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "williamday:536nw20thst"
+                        THEN "William Day"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "johnsantos:1905nw21stpl"
+                        THEN "John Santos"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "steve&stacyharbertson:2912nw22ndave"
+                        THEN "Steve & Stacy Harberston"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "gregoryraymond:1518nw9thst"
+                        THEN "Gregory Raymond"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "richard&christinehaigh:2920nw4thpl(p)"
+                        THEN "Richard & Christine Haigh"
+		WHEN                         
+			LOWER(REPLACE(${Line1}, ' ', '')) = "troystidd:1711nw7thave,capecoral"
+                        THEN "Troy Stidd"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "jasonstevens:3230nw4thpl"     
+                        THEN "Jason Stevens"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "117visard"     
+                        THEN "117 Visa Rd"
+		WHEN
+                         LOWER(REPLACE(${Line1}, ' ', '')) = "tylerlawrence:522nw20thst,capecoral"     
+                        THEN "Tyler Lawrence"
 		ELSE NULL
                 END`;
 }

@@ -3,10 +3,10 @@ config { type: "table" }
 SELECT
   t.*
 FROM
-  `michael-gilbert-dev.mikes_dont_use.daily logs_csv_*`t
+  `michael-gilbert-dev.whitestone.daily logs_csv_*`t
   WHERE
     _TABLE_SUFFIX = (
     SELECT
       MAX(_TABLE_SUFFIX)
     FROM
-      `michael-gilbert-dev.mikes_dont_use.daily logs_csv_*`
+      `michael-gilbert-dev.whitestone.daily logs_csv_*`)

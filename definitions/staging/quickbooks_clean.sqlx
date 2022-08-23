@@ -3,6 +3,7 @@ config {type: 'table'}
 SELECT 
   ${job_name.job_name("t.CustomerRef.name")} AS job_name,
   t.id AS invoice_id,
+  t.EInvoiceStatus AS invoice_status,
   ${customer_name.customer_name("t.BillAddr.Line1")} AS customer_name,
   l.SalesItemLineDetail.Qty AS quantity,
   l.SalesItemLineDetail.UnitPrice as unit_price,
