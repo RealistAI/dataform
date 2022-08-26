@@ -3,7 +3,6 @@ const {BigQuery} = require('@google-cloud/bigquery');
 const {project_id_1} = require('./includes/constants.js');
 const bigquery = new BigQuery();
 
-
 let company_id = 'placeholder_6e49847f-11f7-462d-bb34-61ff460184ec';
 
 async function get_company_data(company_id) {
@@ -21,18 +20,15 @@ async function get_company_data(company_id) {
   };
 
   // Run the query as a job
-  const [job] = await bigquery.createQueryJob(options);
-  console.log(`Job ${job.id} started.`);
-
+  
+  const job = await bigquery.createQueryJob(options);
+  console.log(job);
   // Wait for the query to finish
+  
   const [rows] = await job.getQueryResults();
-
-  // Print the results
-  console.log('Rows:');
-  rows.forEach(row => console.log(row));
-
-  const phase_1 = rows.find(({phase})=> phase = 'phase_1')
-  console.log(phase_1);
+  console.log(rows);
+  return rows
 }
-get_company_data(company_id);
-//module.exports = { get_company_data };
+get_company_data()
+
+//module.exports = {get_company_data};

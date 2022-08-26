@@ -18,9 +18,8 @@ exports.helloPubSub = (event, context) => {
         const message = event.data
 	    ? Buffer.from(event.data, 'base64').toString()
     	    : event.data;
-	    company_name = get_company_name(message);
-	    phase_data.json = get_company_data(company_id);
-		
+	    company_id = get_company_id(message);
+	    get_comapny_data(company_id);
 	    console.log ('Getting company secrets');
 	    company_info = accessSecret(`${project_id}`, company_id);
 //  execSync("./deploy_test.sh");
