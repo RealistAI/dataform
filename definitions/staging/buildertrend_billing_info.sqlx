@@ -1,12 +1,12 @@
 config { type: "table" }
 
 SELECT
-	j.job_name,
+	TRIM(REGEXP_EXTRACT(j.job_name, r"- (.*)\(")) as job_name,
 	j.qb_name,
 	s.scheduled_item,
 	s.scheduled_end,
 	s.completed,
-	j.model,
+        ${model_mapping.model_mapping("s.model")} as model,
 	s.assigned_to
 FROM
 	${ref("buildertrend_billing_jobsites_clean")} j

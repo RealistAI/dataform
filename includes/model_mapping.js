@@ -1,33 +1,33 @@
 function model_mapping(model) {
         return `CASE
                 WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) IN  ("barcelona", "barcelona lh", "barcelona rh", "barcelona no lanai", "barcelona r", "barcelona template") 
+                         LOWER(REPLACE(${model}, ' ', '')) IN  ("barcelona", "barcelonalh", "barcelonarh", "barcelonanolanai", "barcelonar", "barcelonatemplate") 
                         THEN "Barcelona"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) IN  ("barcelona plat", "barcelona plat lh", "barcelona plat rh", "barcelona platinum template")
+                         LOWER(REPLACE(${model}, ' ', '')) IN  ("barcelonaplat", "barcelonaplatlh", "barcelonaplatrh", "barcelonaplatinumtemplate")
                         THEN "Barcelona Platinum"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) IN  ("custom", "CUSTOMIZED")
+                         LOWER(REPLACE(${model}, ' ', '')) IN  ("custom", "customized")
                         THEN "Custom"
 		WHEN                         
-			 LOWER(REPLACE(${model}, ' ', '')) IN ("duplex", "duplex template")
+			 LOWER(REPLACE(${model}, ' ', '')) IN ("duplex", "duplextemplate")
                         THEN "Duplex"
 		WHEN                         
-			 LOWER(REPLACE(${model}, ' ', '')) IN ("granada", "granada template")
+			 LOWER(REPLACE(${model}, ' ', '')) IN ("granada", "granadatemplate", "granadalh")
                         THEN "Granada"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) =  "granada platinum template"
+                         LOWER(REPLACE(${model}, ' ', '')) IN ("granadaplatinumtemplate", "granadaplatinumrh", "granadaplatinumlh")
                         THEN "Granada Platinum"
 		WHEN                          
-			 LOWER(REPLACE(${model}, ' ', '')) IN ("la escapada", "la escapada template")
+			 LOWER(REPLACE(${model}, ' ', '')) IN ("laescapada", "laescapadatemplate", "laescapadarh", "laescap", "laescapadacustmrhpool", "laescapadalh")
                         THEN "La Escapada"
 		WHEN                          
-			 LOWER(REPLACE(${model}, ' ', '')) IN ("las palmas", "las palmas template")
+			 LOWER(REPLACE(${model}, ' ', '')) IN ("laspalmas", "laspalmastemplate", "laspalmaslh", "laspalmasrh")
                         THEN "Las Palmas"
 		WHEN                          
-			 LOWER(REPLACE(${model}, ' ', '')) IN ("marbella plat lh", "marbella plat rh", "marbella plat. rh", "marbella pl.lh", "marbella plat.rh", "marbella platinum lh", "marbella platinum rh", "marbella platinum template")
+			 LOWER(REPLACE(${model}, ' ', '')) IN ("marbellaplatlh", "marbellaplatrh", "marbellaplatlh", "marbellapl.lh", "marbellaplatrh", "marbellaplatinumlh", "marbellaplatinumrh", "marbellaplatinumtemplate", "marbellaplat", "marbellapl", "marbellapla", "marbplatlh")
                         THEN "Marbella Platinum"
-		WHEN     LOWER(REPLACE(${model}, ' ', '')) IN ("marbella 8'rh", "marbella 8' rh", "marbella rh", "marbella lh", "marbella template")
+		WHEN     LOWER(REPLACE(${model}, ' ', '')) IN ("marbella8'rh", "marbella8'rh", "marbellarh", "marbellalh", "marbellatemplate", "marbella")
                         THEN "Marbella"
 		WHEN
                          LOWER(REPLACE(${model}, ' ', '')) =  "multifamily"
@@ -36,16 +36,19 @@ function model_mapping(model) {
                          LOWER(REPLACE(${model}, ' ', '')) =  "sevilla"
                         THEN "Sevilla"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) =  "sevilla platinum template"
+                         LOWER(REPLACE(${model}, ' ', '')) IN ("sevillaplatinumtemplate", "sevillaplat")
                         THEN "Sevilla Platinum"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) IN ("valencia lh", "valencia rh", "custom valencia rh", "custom valencia lh", "valencia l wht", "valencia lh bronze", "valencia rh bronze", "valencia r", "valencia l", "valencia template")
+                         LOWER(REPLACE(${model}, ' ', '')) IN ("valencialh", "valenciarh", "customvalenciarh", "customvalencialh", "valencialwht", "valencialhbronze", "valenciarhbronze", "valenciar", "valencial", "valenciatemplate", "valencia", "valencrh")
                         THEN "Valencia"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) IN ("vista granda", "vista grandee template")
+                         LOWER(REPLACE(${model}, ' ', '')) IN ("valenciaplat")
+                        THEN "Valencia Platinum"
+		WHEN
+                         LOWER(REPLACE(${model}, ' ', '')) IN ("vistagranda", "vistagrandeetemplate", "vistagranderh")
                         THEN "Vista Granda"
 		WHEN
-                         LOWER(REPLACE(${model}, ' ', '')) =  "knight andalucia template"
+                         LOWER(REPLACE(${model}, ' ', '')) =  "knightandaluciatemplate"
                         THEN "Knight Andalucia"
 	        ELSE NULL
                 END`;

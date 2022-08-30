@@ -1,6 +1,7 @@
 config { type: "table"}
 
 SELECT
+	LOWER(TRIM(REGEXP_EXTRACT(job_name, r"\(([a-z A-Z]*)\)*"))) as model,
 	job_name,
 	title as scheduled_item,
 	completed,
